@@ -18,13 +18,12 @@ def runtime(func, *arg, unit = 'sec'):
         tool = (time() - oldtime) / 60
     return {'f_return' : ret, 'time' : took}
 
-def seq(leng):
-    for x in range(leng):
-        print(x)
-
+# Runs python script file
 def run(file):
     with open(file) as f:
         code = compile(f.read(), file, 'exec')
         exec(code)
 
-
+clear = "[H[2J[3J"
+def cls():
+    print(clear)
