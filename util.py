@@ -1,3 +1,4 @@
+
 # Takes a file and iterates on it in chunks of 'block'
 def rblocks(file, block=32):
     chunk = '0'
@@ -27,3 +28,5 @@ def run(file):
 clear = "[H[2J[3J"
 def cls():
     print(clear)
+
+
