@@ -22,3 +22,9 @@ def seq(leng):
     for x in range(leng):
         print(x)
 
+def run(file):
+    with open(file) as f:
+        code = compile(f.read(), file, 'exec')
+        exec(code)
+
+
