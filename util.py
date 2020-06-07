@@ -1,3 +1,5 @@
+import sys
+
 # Takes a file and iterates on it in chunks of 'block'
 def rblocks(file, block=32):
     chunk = '0'
@@ -24,7 +26,39 @@ def run(file):
         code = compile(f.read(), file, 'exec')
         exec(code)
 
+# Clears the screen
 clear = "[H[2J[3J"
 def cls():
     print(clear)
 
+# Returns the full path to given module name
+def mod_find(module):
+    command = "import %s\nglobal _\n_ = %s.__file__"
+    exec(command % (module,module))
+    return _
+
+if __name__ == "__main__":
+    if sys.argv[1] == "mod_find":
+        try:
+            print(mod_find(sys.argv[2]))
+        except:
+            print("ERROR: Module file not found!")
+
+# Gets a character from input without waiting
+# def getch():
+#     from tty import setcbreak as cbreak
+#     import termios
+#     import sys
+#     old = termios.tcgetattr(sys.stdout)
+#     cbreak(sys.stdout)
+#     char = input()
+#     termios.tcsetattr(sys.stdout, termios.TCSAFLUSH, old)
+
+# Checks if a program is running
+
+def running(name): #Check if a program is running
+    import psutil
+    for proc in psutil.process_iter():
+        if name.lower() in proc.name().lower():
+            return True
+    return False
