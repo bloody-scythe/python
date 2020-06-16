@@ -28,7 +28,7 @@ def cls():
     print(clear)
 
 # Returns the full path to given module name
-def mod_find(module):
+def modfind(module):
     from sys import argv
     command = "import %s\nglobal _\n_ = %s.__file__"
     exec(command % (module, module))
