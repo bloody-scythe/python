@@ -14,8 +14,8 @@ def running(name):
     return name in proc_list()
 # Check if a program is running but requires psutil
 def running_fast(name): 
-    import psutil
-    for proc in psutil.process_iter():
+    from psutil import process_iter
+    for proc in process_iter():
         if name.lower() in proc.name().lower():
             return True
     return False
