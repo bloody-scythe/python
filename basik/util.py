@@ -1,6 +1,6 @@
 import sys
 
-# Takes a function and it arguments and returns the time it took to run
+# Takes a function and it's arguments and returns the time it took to run
 def runtime(func, *arg, unit='sec', prec=2):
     from time import time
     oldtime = time()
@@ -21,11 +21,6 @@ def run(file):
     with open(file) as f:
         code = compile(f.read(), file, 'exec')
         exec(code)
-
-# Clears the screen
-clear = "[H[2J[3J"
-def cls():
-    print(clear)
 
 # Returns the full path to given module name
 def modfind(module):
